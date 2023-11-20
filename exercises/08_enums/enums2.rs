@@ -6,8 +6,20 @@
 // I AM NOT DONE
 
 #[derive(Debug)]
+struct MoveStruct {
+    x: u32,
+    y: u32
+}
+
+#[derive(Debug)]
+struct Color(u8, u8, u8);
+
+#[derive(Debug)]
 enum Message {
-    // TODO: define the different variants used below
+    Move(MoveStruct),
+    Echo(String),
+    ChangeColor(Color),
+    Quit
 }
 
 impl Message {
@@ -18,9 +30,9 @@ impl Message {
 
 fn main() {
     let messages = [
-        Message::Move { x: 10, y: 30 },
+        Message::Move(MoveStruct { x: 10, y: 30 } ),
         Message::Echo(String::from("hello world")),
-        Message::ChangeColor(200, 255, 255),
+        Message::ChangeColor(Color( 200, 255, 255 )),
         Message::Quit,
     ];
 
